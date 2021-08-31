@@ -1,4 +1,5 @@
 const result=document.getElementById('display')
+const condition=document.getElementById('Condition')
 //result.innerHTML="updated Result"
 function city(){
     const API_URL       = 'http://api.weatherapi.com/v1/current.json';
@@ -11,6 +12,7 @@ function city(){
         .get(FULL_API_URL)
         .then(Response => {
             result.innerHTML='Temprature is '+Response.data.current.temp_c +' degree celcius';
+            condition.innerHTML=Response.data.current.condition.text;
         })
         .catch(error => {
             result.innerHTML="API doesn't find the City";
